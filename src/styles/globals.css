@@ -1,0 +1,10 @@
+.page-wrapper {
+  width: 1140px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.bg-sprite-1 {
+  background-image: url(https://s2.music.126.net/store/web/img/sprite/modules.png?f4ccdb3408d3839e3cb02703efaa03fc);
+  background-repeat: no-repeat;
+}
