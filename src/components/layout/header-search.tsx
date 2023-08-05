@@ -1,14 +1,22 @@
 'use client'
 
-import React, { memo, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 
 import styles from './layout.module.scss'
+import { fetchSearchSuggest } from '@/http'
 const HeaderSearch = memo(() => {
   const [value, setValue] = useState<string>('')
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
   }
+
+  useEffect(() => {
+    // fetchSearchSuggest().then((res) => {
+    //   console.log('res :>> ', res)
+    // })
+  }, [])
+
   return (
     <div className="relative">
       <div className={` bg-sprite-1 ${styles['header-search']} `}>

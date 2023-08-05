@@ -4,7 +4,7 @@ import { convertParamsToQueryString, deepMerge } from '../../utils'
 import type { RequestConfig, RequestInterceptor } from './types'
 
 class Request {
-  constructor(public defaultConfig) {
+  constructor(public defaultConfig: any) {
     this.defaultConfig = {
       headers: {
         'Content-Type': 'application/json',
@@ -17,11 +17,13 @@ class Request {
   request<T>(config: RequestConfig): Promise<T> {
     // 深度合并默认配置和传入配置
     const finalConfig = deepMerge(this.defaultConfig, config)
-
     // 请求拦截器
     this.interceptRequest(finalConfig)
-
-    return fetch(finalConfig.url, finalConfig).then((res) => {
+    const baseURL = 'https://music.163.com/store' + finalConfig.url
+    return fetch(
+      '/api/proxy?url=' + encodeURIComponent(baseURL),
+      finalConfig,
+    ).then((res) => {
       // 响应拦截器
       this.interceptResponse(res)
 
@@ -54,7 +56,7 @@ class Request {
 }
 
 const defaultConfig = {
-  baseURL: 'https://music.163.com/store/api',
+  baseURL: '/api',
 }
 
 export default new Request(defaultConfig)
