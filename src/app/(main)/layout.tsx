@@ -1,8 +1,10 @@
-import '@/styles/tailwindcss.css'
 import '@/styles/globals.css'
+import '@/styles/tailwindcss.css'
 
-import Header from '@/components/layout/header'
 import Footer from '@/components/layout/footer'
+import Header from '@/components/layout/header'
+
+import ReduxProvider from '@/store/ReduxProvider'
 
 import type { Metadata } from 'next'
 
@@ -22,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <ReduxProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </ReduxProvider>
       </body>
     </html>
   )
