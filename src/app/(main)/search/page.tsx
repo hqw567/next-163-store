@@ -16,7 +16,7 @@ export default function Search() {
 
   useEffect(() => {
     if (q) {
-      dispatch(fetchSearchKey(q))
+      dispatch(fetchSearchKey(q) as any)
     }
   }, [q])
 

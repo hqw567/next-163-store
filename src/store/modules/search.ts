@@ -3,11 +3,11 @@ import { IProducts } from '@/http/home/type'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 export interface SearchState {
-  searchKeys: null | IProducts[]
+  searchKeys: IProducts[] | undefined
 }
 
 const initialState: SearchState = {
-  searchKeys: null,
+  searchKeys: undefined,
 }
 
 export const searchSlice = createSlice({
