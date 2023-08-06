@@ -177,3 +177,11 @@ export interface IAllProduct {
   originalCost: number
   maxPrice: number
 }
+
+export interface ISearchKeyRoot {
+  code: number
+  all: number
+  size: number
+  more: boolean
+  products: IProducts[]
+}

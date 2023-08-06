@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { RootState } from '@/store'
 import { fetchHomeBanner } from '@/store/modules/home'
+import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -36,9 +37,15 @@ const Banner = memo(() => {
           onSlideChange={() => console.log('slide change')}
         >
           {banners?.map((item, index) => {
+            console.log(
+              '🚀 ~ file: banner.tsx:40 ~ {banners?.map ~ item:',
+              item,
+            )
             return (
               <SwiperSlide className=" " key={item.id}>
-                <div
+                <Link
+                  href={item.url}
+                  target="_black"
                   style={{ backgroundImage: `url(${item.backendPicStr})` }}
                   className={` flex  h-full w-full select-none  items-center justify-center bg-cover bg-center bg-repeat-x`}
                 >
@@ -51,7 +58,7 @@ const Banner = memo(() => {
                       height={480}
                     />
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
             )
           })}

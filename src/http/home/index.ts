@@ -5,6 +5,7 @@ import type {
   IAllProductRoot,
   IHotProductRoot,
   IResultBanner,
+  ISearchKeyRoot,
   ISearchsuggest,
 } from './type'
 
@@ -29,5 +30,11 @@ export function getHotProduct() {
 export function getAllProduct() {
   return request.get<IResultData<IAllProductRoot>>({
     url: '/allProduct/gets?limit=60&offset=0',
+  })
+}
+
+export function getSearchKey({ q }: { q: string }) {
+  return request.get<ISearchKeyRoot>({
+    url: '/product/search?key=' + encodeURIComponent(q),
   })
 }

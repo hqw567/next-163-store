@@ -1,15 +1,12 @@
 import SectionItem from './section-item'
 
 export default function SectionBox({
-  title,
   contentData,
 }: {
-  title: string
   contentData: any[] | undefined
 }) {
   return (
-    <section className="page-wrapper mt-[50px]">
-      <h2 className="mb-4 text-2xl font-bold text-[#333]">{title}</h2>
+    <section className="page-wrapper">
       <ul className="grid grid-cols-4 gap-x-[16px] gap-y-[30px] ">
         {contentData?.map((item) => {
           return (

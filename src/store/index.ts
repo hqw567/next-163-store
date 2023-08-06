@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import homeReducer from './modules/home'
-
+import searchReducer from './modules/search'
 export const store = configureStore({
   reducer: {
     home: homeReducer,
+    search: searchReducer,
   },
 })
 

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Album from '@/components/home/album'
 import Banner from '@/components/home/banner'
 import SectionBox from '@/components/home/section-box'
+import SectionTitle from '@/components/home/section-title'
 import Sub from '@/components/home/sub'
 import Tab from '@/components/home/tab'
 
@@ -29,9 +30,11 @@ export default function Home() {
       <Banner />
       <Tab />
       <Sub />
-      <SectionBox title="编辑推荐" contentData={hotProducts?.hotProduct} />
+      <SectionTitle title="编辑推荐" />
+      <SectionBox contentData={hotProducts?.hotProduct} />
       <Album />
-      <SectionBox title="热门商品" contentData={allProducts?.allProduct} />
+      <SectionTitle title="热门商品" />
+      <SectionBox contentData={allProducts?.allProduct} />
     </div>
   )
 }
