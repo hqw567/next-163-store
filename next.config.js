@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/music163/:path*',
+        destination: 'https://music.163.com/:path*',
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {

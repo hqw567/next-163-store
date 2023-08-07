@@ -1,6 +1,6 @@
 'use client'
 
-import { RootState } from '@/store'
+import { AppDispatch, RootState } from '@/store'
 import { fetchAllProduct, fetchHotProduct } from '@/store/modules/home'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -13,11 +13,11 @@ import Sub from '@/components/home/sub'
 import Tab from '@/components/home/tab'
 
 export default function Home() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => {
-    dispatch(fetchHotProduct() as any)
-    dispatch(fetchAllProduct() as any)
+    dispatch(fetchHotProduct())
+    dispatch(fetchAllProduct())
   }, [])
 
   const { hotProducts, allProducts } = useSelector(

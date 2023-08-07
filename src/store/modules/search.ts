@@ -1,13 +1,15 @@
 import { getSearchKey } from '@/http'
-import { IProducts } from '@/http/home/type'
+import { IGetSearchKeyParams, IProducts } from '@/http/home/type'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 export interface SearchState {
-  searchKeys: IProducts[] | undefined
+  searchProducts: IProducts[] | undefined
+  searchTotal: number
 }
 
 const initialState: SearchState = {
-  searchKeys: undefined,
+  searchProducts: undefined,
+  searchTotal: 0,
 }
 
 export const searchSlice = createSlice({
@@ -16,19 +18,17 @@ export const searchSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchSearchKey.fulfilled, (state, action) => {
-      console.log('🚀 ~ file: search.ts:19 ~ builder.addCase ~ action:', action)
-      state.searchKeys = action.payload
+      state.searchProducts = action.payload.products
+      state.searchTotal = action.payload.size
     })
   },
 })
 
 export const fetchSearchKey = createAsyncThunk(
   'fetchSearchKey',
-  async (q: string) => {
-    console.log('q :>> ', q)
-    const response = await getSearchKey({ q })
-    console.log('🚀 ~ file: search.ts:29 ~ response:', response)
-    return response.products
+  async ({ key, sort = '', limit, offset }: IGetSearchKeyParams) => {
+    const response = await getSearchKey({ key, sort, limit, offset })
+    return response
   },
 )
 

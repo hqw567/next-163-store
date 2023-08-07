@@ -1,3 +1,4 @@
+import { stringifyQuery } from '@/utils'
 import request from '../request'
 import { IResultData } from './../request/index'
 
@@ -7,6 +8,7 @@ import type {
   IResultBanner,
   ISearchKeyRoot,
   ISearchsuggest,
+  IGetSearchKeyParams,
 } from './type'
 
 export function getSearchSuggest() {
@@ -33,8 +35,12 @@ export function getAllProduct() {
   })
 }
 
-export function getSearchKey({ q }: { q: string }) {
-  return request.get<ISearchKeyRoot>({
-    url: '/product/search?key=' + encodeURIComponent(q),
+export function getSearchKey(data: IGetSearchKeyParams) {
+  return request.post<ISearchKeyRoot>({
+    url: '/product/search',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: stringifyQuery(data),
   })
 }

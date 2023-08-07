@@ -25,11 +25,12 @@ class Request {
     console.log('🚀 ~ file: index.ts:26 ~ Request ~ finalConfig:', finalConfig)
     // 请求拦截器
     this.interceptRequest(finalConfig)
-    const baseURL = 'https://music.163.com/store/api' + finalConfig.url
-    return fetch(
-      '/api/proxy?url=' + encodeURIComponent(baseURL),
-      finalConfig,
-    ).then((res) => {
+    const baseURL = finalConfig.url
+    return fetch('/music163/store/api' + baseURL, finalConfig).then((res) => {
+      console.log(
+        "🚀 ~ file: index.ts:30 ~ Request ~ returnfetch ~ '/music163' + baseURL:",
+        '/music163' + finalConfig,
+      )
       // 响应拦截器
       this.interceptResponse(res)
 

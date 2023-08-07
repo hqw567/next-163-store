@@ -1,10 +1,11 @@
+'use client'
 import { memo, useEffect } from 'react'
 
 import Image from 'next/image'
 import { EffectFade, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { RootState } from '@/store'
+import { AppDispatch, RootState } from '@/store'
 import { fetchHomeBanner } from '@/store/modules/home'
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
@@ -13,10 +14,10 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 const Banner = memo(() => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => {
-    dispatch(fetchHomeBanner() as any)
+    dispatch(fetchHomeBanner())
   }, [])
 
   const { banners } = useSelector((state: RootState) => state.home)

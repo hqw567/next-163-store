@@ -24,3 +24,14 @@ export function deepMerge(target: any, source: any) {
 
   return target
 }
+
+export function stringifyQuery(params: { [key: string]: any }) {
+  const queryString = Object.keys(params)
+    .map((key) => {
+      const value = params[key]
+      return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+    })
+    .join('&')
+
+  return queryString
+}

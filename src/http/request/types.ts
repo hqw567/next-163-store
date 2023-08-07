@@ -6,6 +6,7 @@ export interface RequestConfig {
   headers?: object
   params?: object
   data?: object | string
+  body?: object | string
 }
 export interface RequestInterceptor {
   onRequest: (config: RequestConfig) => void

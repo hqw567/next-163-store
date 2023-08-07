@@ -185,3 +185,10 @@ export interface ISearchKeyRoot {
   more: boolean
   products: IProducts[]
 }
+
+export interface IGetSearchKeyParams {
+  key: string
+  sort?: string
+  offset: number
+  limit: number
+}
