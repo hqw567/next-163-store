@@ -39,6 +39,7 @@ export default function TabSort({
         return (
           <>
             <li
+              key={index}
               onClick={() => handleOnclick(index)}
               data-checked={item.checked}
               className={` cursor-pointer  list-none hover:font-bold hover:text-[#333] data-[checked=true]:font-bold data-[checked=true]:text-[#333]`}

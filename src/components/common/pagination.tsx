@@ -1,51 +1,10 @@
-// import { useState } from 'react'
-
-// export default function Pagination() {
-//   const [currentPage, setCurrentPage] = useState(1) // 当前页数
-//   const [total, setTotal] = useState(3188) // 数据总数
-//   const [pageSize, setPageSize] = useState(60) // 每页条数
-
-//   const totalPage = Math.ceil(total / pageSize) // 总页数
-//   console.log(
-//     '🚀 ~ file: pagination.tsx:9 ~ Pagination ~ totalPage:',
-//     totalPage,
-//   )
-//   const showPage = []
-
-//   for (let i = 0; i < currentPage; i++) {
-//     showPage.push(i + 1)
-//   }
-
-//   return (
-//     <div className="my-5 flex justify-center space-x-2 text-sm text-[#333]">
-//       <div className=" h-[32px] w-[32px]  bg-[url(https://s2.music.126.net/store/web/img/prev2.png?7dd50aef805afba38769cea56ab8a63f)] bg-no-repeat "></div>
-//       <div
-//         data-checked={currentPage === 1}
-//         className="flex h-[32px] cursor-pointer items-center justify-center border border-[#ededed] px-[12px] hover:border-[#666] data-[checked=true]:bg-[#d33a31] data-[checked=true]:text-white"
-//       >
-//         1
-//       </div>
-//       <div className="flex h-[32px] cursor-pointer items-center justify-center border border-[#ededed] px-[12px] hover:border-[#666]">
-//         1
-//       </div>
-//       <div className="flex h-[32px] cursor-pointer items-center justify-center border border-[#ededed] px-[12px] hover:border-[#666]">
-//         1
-//       </div>
-//       <i>...</i>
-//       <div className="flex h-[32px] cursor-pointer items-center justify-center border border-[#ededed] px-[12px] hover:border-[#666]">
-//         {totalPage}
-//       </div>
-//       <div className="text h-[32px] w-[32px]  bg-[url(https://s2.music.126.net/store/web/img/next2.png?50443d7eb0917e39acf5f5d08330531f)] bg-no-repeat "></div>
-//     </div>
-//   )
-// }
-
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface Props {
   total: number
   pageSize: number
   onPageChange: (page: number) => void
+  currentPage?: number
   initialPage?: number
 }
 
@@ -53,6 +12,7 @@ const Pagination: React.FC<Props> = ({
   total,
   pageSize,
   onPageChange,
+  currentPage = 1,
   initialPage = 1,
 }) => {
   const [current, setCurrent] = useState(initialPage)
@@ -61,6 +21,9 @@ const Pagination: React.FC<Props> = ({
   if (current > pageCount) {
     setCurrent(1)
   }
+  useEffect(() => {
+    setCurrent(currentPage)
+  }, [currentPage])
 
   const pages = getPageNumbers(pageCount, current)
 
@@ -112,7 +75,6 @@ const Pagination: React.FC<Props> = ({
     setCurrent(page)
     onPageChange(page)
   }
-
   return (
     <div className=" my-5 flex justify-center space-x-2 text-sm text-[#333]">
       <button

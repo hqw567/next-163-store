@@ -6,13 +6,23 @@ import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import SectionBox from '@/components/home/section-box'
 import NavPath from '@/components/common/nav-path'
-import TabSort from '@/components/search/tab-sort'
 import Pagination from '@/components/common/pagination'
+import SectionBox from '@/components/home/section-box'
+import TabSort from '@/components/search/tab-sort'
+import { Metadata } from 'next'
+
+let metadataData = {
+  title: '搜索 - 云音乐商城 - 音乐购有趣',
+}
+
+export const metadata: Metadata = {
+  title: metadataData.title,
+}
+
 export default function Search() {
   const searchParams = useSearchParams()
-  console.log('searchParams.g', searchParams.get('q'))
+
   const q = decodeURIComponent(searchParams.get('q') || '')
   const dispatch = useDispatch<AppDispatch>()
   const limit = 60
@@ -20,11 +30,7 @@ export default function Search() {
   const [current, setCurrent] = useState(1)
   function handlePageChange(page: number) {
     setCurrent(page)
-    // setOffset((page - 1) * limit)
-    console.log(
-      '🚀 ~ file: page.tsx:25 ~ handlePageChange ~ page - 1) * limit:',
-      (page - 1) * limit,
-    )
+
     dispatch(fetchSearchKey({ key: q, offset: (page - 1) * limit, limit }))
     handleScrollToTop()
   }
@@ -54,13 +60,15 @@ export default function Search() {
       <NavPath title={q} />
       <TabSort onItemClick={(sort) => handleTabSortClick(sort)} />
       <SectionBox contentData={searchProducts} />
-
-      <Pagination
-        total={searchTotal}
-        pageSize={limit}
-        initialPage={current}
-        onPageChange={handlePageChange}
-      />
+      {searchTotal !== 0 && (
+        <Pagination
+          total={searchTotal}
+          pageSize={limit}
+          initialPage={current}
+          currentPage={current}
+          onPageChange={handlePageChange}
+        />
+      )}
     </div>
   )
 }

@@ -22,15 +22,10 @@ class Request {
   request<T>(config: RequestConfig): Promise<T> {
     // 深度合并默认配置和传入配置
     const finalConfig = deepMerge(this.defaultConfig, config)
-    console.log('🚀 ~ file: index.ts:26 ~ Request ~ finalConfig:', finalConfig)
     // 请求拦截器
     this.interceptRequest(finalConfig)
     const baseURL = finalConfig.url
     return fetch('/music163/store/api' + baseURL, finalConfig).then((res) => {
-      console.log(
-        "🚀 ~ file: index.ts:30 ~ Request ~ returnfetch ~ '/music163' + baseURL:",
-        '/music163' + finalConfig,
-      )
       // 响应拦截器
       this.interceptResponse(res)
 
