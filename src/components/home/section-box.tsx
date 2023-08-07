@@ -19,7 +19,9 @@ export default function SectionBox({
               }
               price={item.minPrice || item.products?.minPrice}
               vipPrice={item.vipMinPrice}
-              href={`https://music.163.com/store/product/detail?id=${item.id}`}
+              href={`/detail/${
+                item.id > 2000000 ? item.id : item.products?.id
+              }`}
             />
           )
         })}

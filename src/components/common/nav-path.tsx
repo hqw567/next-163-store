@@ -8,7 +8,7 @@ export default function NavPath({
   isShare?: boolean
 }) {
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper mb-[15px]">
       <div className=" flex items-center justify-between  border-b border-[#333333] pb-[19px] pt-[30px]">
         <ul className="flex font-bold">
           <li className=" text-[#333] hover:underline">
