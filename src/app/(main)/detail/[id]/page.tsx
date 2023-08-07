@@ -3,6 +3,7 @@
 import { getProductDetail } from '@/http'
 
 import NavPath from '@/components/common/nav-path'
+import PhotoGallery from '@/components/detail/photo-gallery'
 import ProductDetail from '@/components/detail/product-detail'
 
 export default async function Detail({ params }: { params: { id: string } }) {
@@ -14,7 +15,13 @@ export default async function Detail({ params }: { params: { id: string } }) {
     <div className="">
       <NavPath title={product.name || '商品详情'} isShare />
       <div className="page-wrapper">
-        <h1>{product.name}</h1>
+        <div>
+          <PhotoGallery photos={product.picUrls} />
+          <div>
+            <h1>{product.name}</h1>
+          </div>
+        </div>
+
         <ProductDetail content={product.descr} name={product.name} />
       </div>
     </div>
