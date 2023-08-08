@@ -11,7 +11,7 @@ export default async function ProductDetail({
 }) {
   const { data } = await getHotProductS({ limit: 4, offset: 0 })
   return (
-    <div className=" mt-[66px] flex justify-between">
+    <div id="detail-box" className=" mt-[66px] flex justify-between">
       <div className=" w-[700px]">
         <h3 className="mb-5 border-b border-[#333] pb-[17px] text-[22px] font-bold text-[#333]">
           商品详情

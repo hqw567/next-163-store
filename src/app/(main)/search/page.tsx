@@ -12,12 +12,8 @@ import SectionBox from '@/components/home/section-box'
 import TabSort from '@/components/search/tab-sort'
 import { Metadata } from 'next'
 
-let metadataData = {
-  title: '搜索 - 云音乐商城 - 音乐购有趣',
-}
-
 export const metadata: Metadata = {
-  title: metadataData.title,
+  title: '搜索 - 云音乐商城 - 音乐购有趣',
 }
 
 export default function Search() {

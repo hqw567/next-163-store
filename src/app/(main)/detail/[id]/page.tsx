@@ -6,23 +6,38 @@ import NavPath from '@/components/common/nav-path'
 import CommodityInfo from '@/components/detail/commodity-info'
 import PhotoGallery from '@/components/detail/photo-gallery'
 import ProductDetail from '@/components/detail/product-detail'
-import { Metadata } from 'next'
+import TopBar from '@/components/detail/top-bar'
 
-let metadataData = {
-  title: '商品详情 - 云音乐商城 - 音乐购有趣',
+import type { Metadata, ResolvingMetadata } from 'next'
+
+type Props = {
+  params: { id: string }
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export const metadata: Metadata = {
-  title: metadataData.title,
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent?: ResolvingMetadata,
+): Promise<Metadata> {
+  const id = +params.id
+  const data = await getProductDetail(id)
+  const { product } = data
+  return {
+    title: product.name,
+    description: product.suggestWord,
+    openGraph: {
+      title: product.name,
+      description: product.suggestWord,
+    },
+  }
 }
 
 export default async function Detail({ params }: { params: { id: string } }) {
   const data = await getProductDetail(+params.id)
-  console.log('🚀 ~ file: page.tsx:6 ~ Detail ~ params.id:', params.id)
-  console.log('🚀 ~ file: page.tsx:6 ~ Detail ~ res:', data)
   const { product, coupons } = data
   return (
     <div className="">
+      <TopBar product={product} />
       <NavPath title={product.name || '商品详情'} isShare />
       <div className="page-wrapper">
         <div className="flex justify-between">

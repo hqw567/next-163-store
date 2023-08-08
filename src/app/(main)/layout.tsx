@@ -9,7 +9,10 @@ import ReduxProvider from '@/store/ReduxProvider'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: '云音乐商城 - 音乐购有趣',
+  title: {
+    template: '%s | 云音乐商城 - 音乐购有趣',
+    default: '云音乐商城 - 音乐购有趣',
+  },
   keywords:
     '数码影音，beats耳机，击音耳机，漫步者，akg，潮牌，T恤，音乐生活，食品，服饰配件，礼品，礼物，礼盒，鲜花，ip周边，云音乐，商城，云贝',
   description:
