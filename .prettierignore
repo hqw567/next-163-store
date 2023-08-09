@@ -1,0 +1,43 @@
+# 忽略依赖包
+/node_modules
+
+# 忽略构建生成文件
+/dist
+/build
+
+# 忽略所有 dotfiles
+.*
+
+# 忽略 lock 文件
+*.lock
+package-lock.json
+pnpm-lock.yaml
+
+# 忽略非代码文件
+*.md
+*.png
+*.jpg
+*.gif
+*.svg
+*.ico
+
+# 忽略日志目录
+/logs
+
+# 忽略所有日志文件
+*.log
+
+# 忽略测试代码
+/tests
+/coverage
+/cypress
+
+# 忽略示例代码
+/examples
+
+# 忽略缓存和配置文件夹
+.*cache*/
+.*config*/
+
+# 忽略 CI/CD 配置 
+.*ci.*
