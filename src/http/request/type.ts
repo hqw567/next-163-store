@@ -12,3 +12,8 @@ export interface RequestInterceptor {
   onRequest: (config: RequestConfig) => void
   onResponse: (response: Response) => void
 }
+
+export interface IResultData<T> {
+  code: number
+  data: T
+}

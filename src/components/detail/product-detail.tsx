@@ -1,4 +1,4 @@
-import { getHotProductS } from '@/http'
+import { getHotProductS } from '@/http/detail'
 import parse from 'html-react-parser'
 import Image from 'next/image'
 import Link from 'next/link'

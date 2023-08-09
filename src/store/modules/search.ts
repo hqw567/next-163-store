@@ -1,4 +1,4 @@
-import { getSearchKey } from '@/http'
+import { getSearchKey } from '@/http/home'
 import { IGetSearchKeyParams, IProducts } from '@/http/home/type'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 

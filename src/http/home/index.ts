@@ -1,6 +1,6 @@
 import { stringifyQuery } from '@/utils'
 import request from '../request'
-import { IResultData } from './../request/index'
+import { IResultData } from './../request/type'
 
 import type {
   IAllProductRoot,
@@ -10,6 +10,10 @@ import type {
   ISearchsuggest,
   IGetSearchKeyParams,
 } from './type'
+
+request.initDefaultConfig({
+  baseURL: '/music163/store/api',
+})
 
 export function getSearchSuggest() {
   return request.get<IResultData<ISearchsuggest>>({

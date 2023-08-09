@@ -3,7 +3,7 @@ import {
   getHomeBanner,
   getHotProduct,
   getSearchSuggest,
-} from '@/http'
+} from '@/http/home'
 import type {
   IAllProductRoot,
   IHomeBanner,

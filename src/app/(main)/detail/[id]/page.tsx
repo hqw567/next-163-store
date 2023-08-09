@@ -1,6 +1,6 @@
 // 'use client'
 
-import { getProductDetail } from '@/http'
+import { getProductDetail } from '@/http/detail'
 
 import NavPath from '@/components/common/nav-path'
 import CommodityInfo from '@/components/detail/commodity-info'

@@ -1,37 +1,35 @@
-// request.ts
-
 import { deepMerge } from '../../utils'
-import type { RequestConfig, RequestInterceptor } from './types'
 
-export interface IResultData<T> {
-  code: number
-  data: T
-}
+import type { RequestConfig, RequestInterceptor } from './type'
 
 class Request {
-  constructor(public defaultConfig: any) {
-    this.defaultConfig = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  }
+  defaultConfig: RequestConfig = {}
 
   interceptors: RequestInterceptor[] = []
 
-  request<T>(config: RequestConfig): Promise<T> {
-    // 深度合并默认配置和传入配置
-    const finalConfig = deepMerge(this.defaultConfig, config)
-    // 请求拦截器
-    this.interceptRequest(finalConfig)
-    const baseURL = finalConfig.url
-    return fetch('/music163/store/api' + baseURL, finalConfig).then((res) => {
-      // 响应拦截器
-      this.interceptResponse(res)
+  constructor() {}
 
+  initDefaultConfig(config: RequestConfig) {
+    this.defaultConfig = config
+  }
+
+  request<T>(config: RequestConfig): Promise<T> {
+    const finalConfig = this.defaultConfig
+      ? deepMerge(this.defaultConfig, config)
+      : config
+
+    this.interceptRequest(finalConfig)
+
+    if (this.defaultConfig.baseURL) {
+      finalConfig.url = this.defaultConfig.baseURL + config.url
+    }
+
+    return fetch(finalConfig.url, finalConfig).then((res) => {
+      this.interceptResponse(res)
       return res.json() as Promise<T>
     })
   }
+
   get<T>(config: RequestConfig): Promise<T> {
     return this.request({ ...config, method: 'GET' })
   }
@@ -57,8 +55,4 @@ class Request {
   }
 }
 
-const defaultConfig = {
-  baseURL: '/api',
-}
-
-export default new Request(defaultConfig)
+export default new Request()
