@@ -8,10 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "commit": "commit",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "cm": "cz"
+    "commit": "git-cz"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -50,7 +49,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./.cz-config.js"
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
