@@ -4,12 +4,12 @@ import Link from 'next/link'
 export default function Sub() {
   const subs = [
     {
-      href: 'https://music.163.com/store/product/column?id=55001',
+      href: '/column/55001',
       imgSrc:
         'https://p4.music.126.net/kQqf40w-NFhLXIksQPgSwg==/109951164207184328.jpg',
     },
     {
-      href: 'https://music.163.com/store/product/column?id=68001',
+      href: '/column/68001',
       imgSrc:
         'https://p4.music.126.net/QtFPuBnRPFatpnGsyNJYhw==/109951163973446450.jpg',
     },
@@ -18,12 +18,7 @@ export default function Sub() {
     <div className=" page-wrapper mt-[40px] flex space-x-4">
       {subs.map((item, index) => {
         return (
-          <Link
-            href={item.href}
-            target="_blank"
-            key={index}
-            className="h-[300px] w-[542px]"
-          >
+          <Link href={item.href} key={index} className="h-[300px] w-[542px]">
             <Image
               src={item.imgSrc}
               alt="sub"

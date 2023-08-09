@@ -54,10 +54,15 @@ export default function CommodityInfo({
         <h1 className="text-[24px] text-[#333]">{product.name}</h1>
         <p className="mt-2 text-sm text-[#999]">{product.suggestWord}</p>
         <p className="my-5 text-[30px] text-[#d33a31]">
-          ￥{product.skus[0].price}
+          ￥{product.skus[0].spePrice}{' '}
+          {product.skus[0].price !== product.skus[0].spePrice && (
+            <del className=" ml-2 text-base text-[#999]">
+              ￥{product.skus[0].price}
+            </del>
+          )}
         </p>
         <ul className=" space-y-5 text-xs">
-          {coupons.length && (
+          {coupons.length > 0 && (
             <li className="relative flex items-center space-x-3">
               <span className=" shrink-0 text-[#999]">促销：</span>
               <div className="relative w-full">

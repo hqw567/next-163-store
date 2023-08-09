@@ -11,7 +11,7 @@ import styles from './layout.module.scss'
 const Header = memo(() => {
   return (
     <div className="page-wrapper  flex h-[73px] items-center justify-between">
-      <div className={['bg-sprite-1', styles.logo].join(' ')}></div>
+      <Link className={['bg-sprite-1', styles.logo].join(' ')} href={'/'} />
       <div className="flex space-x-8">
         <HeaderSearch />
         <Link

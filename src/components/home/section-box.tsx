@@ -17,6 +17,9 @@ export default function SectionBox({
               couponLabelDesc={
                 item.couponLabelDesc || item.products?.couponLabelDesc
               }
+              tags={item.tags}
+              originalCost={item.originalCost}
+              status={item.status}
               price={item.minPrice || item.products?.minPrice}
               vipPrice={item.vipMinPrice}
               href={`/detail/${
