@@ -79,6 +79,9 @@ devDependencies:
   conventional-commit-types:
     specifier: ^3.0.0
     version: 3.0.0
+  cz-conventional-changelog:
+    specifier: ^3.3.0
+    version: 3.3.0
   eslint-plugin-prettier:
     specifier: ^5.0.0
     version: 5.0.0(eslint@8.46.0)(prettier@3.0.1)
