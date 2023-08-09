@@ -56,6 +56,7 @@
   },
   "husky": {
     "hooks": {
+      "pre-add": "npm run prettier",
       "commit-msg": "commit-msg.sh",
       "pre-commit": "pre-commit.sh"
     }
