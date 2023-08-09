@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prettier": "prettier --write .",
     "prepare": "husky install",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
@@ -51,6 +52,12 @@
   "config": {
     "commitizen": {
       "path": "node_modules/cz-git"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commit-msg.sh",
+      "pre-commit": "pre-commit.sh"
     }
   }
 }
