@@ -82,6 +82,9 @@ devDependencies:
   cz-conventional-changelog:
     specifier: ^3.3.0
     version: 3.3.0
+  cz-git:
+    specifier: ^1.7.1
+    version: 1.7.1
   eslint-plugin-prettier:
     specifier: ^5.0.0
     version: 5.0.0(eslint@8.46.0)(prettier@3.0.1)
@@ -1459,6 +1462,11 @@ packages:
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
+    dev: true
+
+  /cz-git@1.7.1:
+    resolution: {integrity: sha512-NMe4REukCS7op1YA1jixRXOgII8Um2/Ii8TeyFEOISgp2ZzeobzkMOP8dXSrTQ3bvmm7YpPOdr2301yJkOJcbA==}
+    engines: {node: '>=v12.20.0'}
     dev: true
 
   /damerau-levenshtein@1.0.8:
