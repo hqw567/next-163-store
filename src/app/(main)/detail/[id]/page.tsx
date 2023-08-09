@@ -15,10 +15,7 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent?: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props, parent?: ResolvingMetadata): Promise<Metadata> {
   const id = +params.id
   const data = await getProductDetail(id)
   const { product } = data

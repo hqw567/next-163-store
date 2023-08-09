@@ -14,10 +14,7 @@ const Header = memo(() => {
       <Link className={['bg-sprite-1', styles.logo].join(' ')} href={'/'} />
       <div className="flex space-x-8">
         <HeaderSearch />
-        <Link
-          href="/"
-          className={`bg-sprite-1 ${styles['header-cart']} block h-10 w-10`}
-        />
+        <Link href="/" className={`bg-sprite-1 ${styles['header-cart']} block h-10 w-10`} />
         <HeaderLogin />
       </div>
     </div>

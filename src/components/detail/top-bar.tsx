@@ -10,13 +10,10 @@ export default function TopBar({ product }: { product: product }) {
   useEffect(() => {
     const handleScroll = () => {
       if (topBarRef.current) {
-        const commodityInfoPurchaseEl = document.getElementById(
-          'commodity-info-purchase',
-        )
+        const commodityInfoPurchaseEl = document.getElementById('commodity-info-purchase')
         const detailBoxTop = commodityInfoPurchaseEl?.offsetTop || 0
         const scrollTop = document.documentElement.scrollTop
-        topBarRef.current.dataset.active =
-          scrollTop > detailBoxTop ? 'true' : 'false'
+        topBarRef.current.dataset.active = scrollTop > detailBoxTop ? 'true' : 'false'
       }
     }
 
@@ -35,12 +32,7 @@ export default function TopBar({ product }: { product: product }) {
     >
       <div className="page-wrapper flex h-full items-center justify-between">
         <div className="flex">
-          <Image
-            src={product.coverUrl}
-            alt={product.name}
-            width={50}
-            height={50}
-          />
+          <Image src={product.coverUrl} alt={product.name} width={50} height={50} />
           <div className="ml-4 w-[634px] text-base">
             <h2 className="  line-clamp-1 h-[26px]">{product.name}</h2>
             <p className=" text-[#d33a31]">￥{product.skus[0].price}</p>

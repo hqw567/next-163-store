@@ -8,11 +8,7 @@ export default function SortTabbar({ sortData }: { sortData: any[] }) {
           return (
             <li key={item.title} className="flex border border-[#e5e5e5]">
               <h4 className="w-[80px] text-[#999]">{item.title}</h4>
-              <ul
-                className={`${
-                  item.title === '品牌' && 'h-[88px]'
-                } overflow-hidden text-[#333]`}
-              >
+              <ul className={`${item.title === '品牌' && 'h-[88px]'} overflow-hidden text-[#333]`}>
                 {item.value.map((sub, subIndex) => {
                   if (item.title === '品牌') {
                     return (

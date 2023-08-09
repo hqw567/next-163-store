@@ -1,10 +1,6 @@
 import { useState } from 'react'
 
-export default function TabSort({
-  onItemClick,
-}: {
-  onItemClick: (sort: string) => void
-}) {
+export default function TabSort({ onItemClick }: { onItemClick: (sort: string) => void }) {
   const [sort, setSort] = useState([
     {
       title: '综合',

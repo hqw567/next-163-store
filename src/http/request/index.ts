@@ -14,9 +14,7 @@ class Request {
   }
 
   request<T>(config: RequestConfig): Promise<T> {
-    const finalConfig = this.defaultConfig
-      ? deepMerge(this.defaultConfig, config)
-      : config
+    const finalConfig = this.defaultConfig ? deepMerge(this.defaultConfig, config) : config
 
     this.interceptRequest(finalConfig)
 

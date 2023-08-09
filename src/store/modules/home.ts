@@ -1,14 +1,5 @@
-import {
-  getAllProduct,
-  getHomeBanner,
-  getHotProduct,
-  getSearchSuggest,
-} from '@/http/home'
-import type {
-  IAllProductRoot,
-  IHomeBanner,
-  ISearchsuggest,
-} from '@/http/home/type'
+import { getAllProduct, getHomeBanner, getHotProduct, getSearchSuggest } from '@/http/home'
+import type { IAllProductRoot, IHomeBanner, ISearchsuggest } from '@/http/home/type'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { IHotProductRoot } from './../../http/home/type'
 
@@ -47,13 +38,10 @@ export const homeSlice = createSlice({
   },
 })
 
-export const fetchSearchSuggest = createAsyncThunk(
-  'fetchSearchSuggest',
-  async () => {
-    const response = await getSearchSuggest()
-    return response.data
-  },
-)
+export const fetchSearchSuggest = createAsyncThunk('fetchSearchSuggest', async () => {
+  const response = await getSearchSuggest()
+  return response.data
+})
 export const fetchHomeBanner = createAsyncThunk('fetchHomeBanner', async () => {
   const response = await getHomeBanner()
   return response.banners
@@ -62,13 +50,10 @@ export const fetchHotProduct = createAsyncThunk('fetchHotProduct', async () => {
   const response = await getHotProduct()
   return response.data
 })
-export const fetchAllProduct = createAsyncThunk(
-  'fetchGetAllProduct',
-  async () => {
-    const response = await getAllProduct()
-    return response.data
-  },
-)
+export const fetchAllProduct = createAsyncThunk('fetchGetAllProduct', async () => {
+  const response = await getAllProduct()
+  return response.data
+})
 
 // Action creators are generated for each case reducer function
 // export const { increment, decrement, incrementByAmount } = homeSlice.actions

@@ -22,24 +22,12 @@ export default function PhotoGallery({ photos }: { photos: string[] }) {
       const offsetX = e.clientX - containerRect.left
       const offsetY = e.clientY - containerRect.top
 
-      const x = Math.min(
-        Math.max(0, offsetX - maskSize / 2),
-        containerSize - maskSize,
-      )
-      const y = Math.min(
-        Math.max(0, offsetY - maskSize / 2),
-        containerSize - maskSize,
-      )
+      const x = Math.min(Math.max(0, offsetX - maskSize / 2), containerSize - maskSize)
+      const y = Math.min(Math.max(0, offsetY - maskSize / 2), containerSize - maskSize)
 
       // 计算 bigImg 的位移，根据 bigImg 的实际大小和父组件的宽度来调整
-      const bigImgTranslateX = -(
-        (bigImgWidth - 530) *
-        (x / (containerSize - maskSize))
-      )
-      const bigImgTranslateY = -(
-        (bigImgWidth - 530) *
-        (y / (containerSize - maskSize))
-      )
+      const bigImgTranslateX = -((bigImgWidth - 530) * (x / (containerSize - maskSize)))
+      const bigImgTranslateY = -((bigImgWidth - 530) * (y / (containerSize - maskSize)))
 
       setMaskPos({ x, y, bigImgTranslateX, bigImgTranslateY })
     },
@@ -49,12 +37,7 @@ export default function PhotoGallery({ photos }: { photos: string[] }) {
   return (
     <div className="w-[440px]">
       <div className="group relative mb-2" onMouseMove={handleMouseMove}>
-        <Image
-          src={photos[current]}
-          alt={''}
-          width={containerSize}
-          height={containerSize}
-        />
+        <Image src={photos[current]} alt={''} width={containerSize} height={containerSize} />
         <div
           ref={img}
           style={{ left: maskPos.x, top: maskPos.y }}

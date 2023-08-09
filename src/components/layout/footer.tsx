@@ -58,20 +58,14 @@ const Footer = memo(() => {
                   <Link className="hover:underline" href={item.href}>
                     {item.title}
                   </Link>
-                  {serviceLinks.length - 1 !== index && (
-                    <span className="mx-2">|</span>
-                  )}
+                  {serviceLinks.length - 1 !== index && <span className="mx-2">|</span>}
                 </div>
               )
             })}
           </div>
+          <p>网易公司版权所有©1997-2023杭州乐读科技有限公司运营：浙网文[2021] 1186-054号</p>
           <p>
-            网易公司版权所有©1997-2023杭州乐读科技有限公司运营：浙网文[2021]
-            1186-054号
-          </p>
-          <p>
-            食品经营许可证 出版物经营许可证 营业执照
-            网络食品交易第三方平台提供者信息备案: 浙网食A33010041
+            食品经营许可证 出版物经营许可证 营业执照 网络食品交易第三方平台提供者信息备案: 浙网食A33010041
             进口冷链管理承诺书
           </p>
           <p>粤B2-20090191-18举报邮箱：工业和信息化部备案管理系统网站</p>

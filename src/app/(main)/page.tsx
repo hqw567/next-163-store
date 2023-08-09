@@ -20,9 +20,7 @@ export default function Home() {
     dispatch(fetchAllProduct())
   }, [])
 
-  const { hotProducts, allProducts } = useSelector(
-    (state: RootState) => state.home,
-  )
+  const { hotProducts, allProducts } = useSelector((state: RootState) => state.home)
   console.log('🚀 ~ file: page.tsx:22 ~ Home ~ allProducts:', allProducts)
 
   return (

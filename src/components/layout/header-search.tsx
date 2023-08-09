@@ -49,14 +49,8 @@ const HeaderSearch = memo(() => {
           placeholder={searchsuggest?.defaultKey}
         />
       </div>
-      <div
-        className={`${
-          !focused && 'hidden'
-        } absolute  left-0 top-[40px] z-50 w-[300px] bg-white text-sm shadow-xl`}
-      >
-        <div className=" border-b border-stone-300 px-5 py-2 font-bold">
-          热门搜索
-        </div>
+      <div className={`${!focused && 'hidden'} absolute  left-0 top-[40px] z-50 w-[300px] bg-white text-sm shadow-xl`}>
+        <div className=" border-b border-stone-300 px-5 py-2 font-bold">热门搜索</div>
         <ul className="  text-stone-400">
           {searchsuggest?.configKey.map((item: any, index) => {
             return (

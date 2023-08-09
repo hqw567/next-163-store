@@ -8,13 +8,7 @@ interface Props {
   initialPage?: number
 }
 
-const Pagination: React.FC<Props> = ({
-  total,
-  pageSize,
-  onPageChange,
-  currentPage = 1,
-  initialPage = 1,
-}) => {
+const Pagination: React.FC<Props> = ({ total, pageSize, onPageChange, currentPage = 1, initialPage = 1 }) => {
   const [current, setCurrent] = useState(initialPage)
 
   const pageCount = Math.ceil(total / pageSize)

@@ -39,9 +39,7 @@ export default function Search() {
     }
   }, [q])
 
-  const { searchProducts, searchTotal } = useSelector(
-    (state: RootState) => state.search,
-  )
+  const { searchProducts, searchTotal } = useSelector((state: RootState) => state.search)
   const handleTabSortClick = (sort: string | null) => {
     // setOffset(0)
     setCurrent(1)

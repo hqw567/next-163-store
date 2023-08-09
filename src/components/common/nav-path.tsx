@@ -1,12 +1,6 @@
 import Link from 'next/link'
 
-export default function NavPath({
-  title,
-  isShare,
-}: {
-  title: string
-  isShare?: boolean
-}) {
+export default function NavPath({ title, isShare }: { title: string; isShare?: boolean }) {
   return (
     <div className="page-wrapper mb-[15px]">
       <div className=" flex items-center justify-between  border-b border-[#333333] pb-[19px] pt-[30px]">

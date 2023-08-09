@@ -45,10 +45,7 @@ export default function variouskind({ params, searchParams }: Props) {
 
   if (productRes) {
     const { data: filterData } = filterRes
-    console.log(
-      '🚀 ~ file: page.tsx:50 ~ variouskind ~ filterData:',
-      filterData,
-    )
+    console.log('🚀 ~ file: page.tsx:50 ~ variouskind ~ filterData:', filterData)
     const { products: productData } = productRes
     return (
       <>

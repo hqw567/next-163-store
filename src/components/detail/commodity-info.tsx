@@ -1,24 +1,16 @@
 import type { Coupon, product } from '@/http/detail/type'
 
-export default function CommodityInfo({
-  product,
-  coupons,
-}: {
-  product: product
-  coupons: Coupon[]
-}) {
+export default function CommodityInfo({ product, coupons }: { product: product; coupons: Coupon[] }) {
   const commodityService = [
     {
       id: '1',
       title: '7天无理由退货',
-      subtitle:
-        '该商品支持7天无理由退货，买家在商品签收日起7天内可在线发起退货申请',
+      subtitle: '该商品支持7天无理由退货，买家在商品签收日起7天内可在线发起退货申请',
     },
     {
       id: '3',
       title: '15天无忧换货',
-      subtitle:
-        '该商品支持15天无忧换货，买家在商品签收之日起15天内可在线发起换货申请',
+      subtitle: '该商品支持15天无忧换货，买家在商品签收之日起15天内可在线发起换货申请',
     },
     {
       id: '5',
@@ -56,9 +48,7 @@ export default function CommodityInfo({
         <p className="my-5 text-[30px] text-[#d33a31]">
           ￥{product.skus[0].spePrice}{' '}
           {product.skus[0].price !== product.skus[0].spePrice && (
-            <del className=" ml-2 text-base text-[#999]">
-              ￥{product.skus[0].price}
-            </del>
+            <del className=" ml-2 text-base text-[#999]">￥{product.skus[0].price}</del>
           )}
         </p>
         <ul className=" space-y-5 text-xs">
@@ -74,19 +64,13 @@ export default function CommodityInfo({
                     >
                       <div className=" space-x-2">
                         {item.couponLabel && (
-                          <span className="border border-[#d33a31] px-1 text-[#d33a31]">
-                            {item.couponLabel}
-                          </span>
+                          <span className="border border-[#d33a31] px-1 text-[#d33a31]">{item.couponLabel}</span>
                         )}
                         <span>
-                          {item.effectAction.effectValue &&
-                            `${item.effectAction.effectValue}元`}{' '}
-                          {item.couponName}
+                          {item.effectAction.effectValue && `${item.effectAction.effectValue}元`} {item.couponName}
                           ，无门槛
                         </span>
-                        <span className="cursor-pointer text-[#328ad4]">
-                          领券
-                        </span>
+                        <span className="cursor-pointer text-[#328ad4]">领券</span>
                       </div>
                       {coupons.length > 1 && index === 0 && (
                         <div>
@@ -105,10 +89,7 @@ export default function CommodityInfo({
             <span className=" shrink-0 text-[#999]">颜色：</span>
             <div>
               {product.skus.map((sku, index) => (
-                <button
-                  className="border-[ #e5e5e5] mb-[10px] mr-[10px] h-[30px] border px-5 text-[#333]"
-                  key={index}
-                >
+                <button className="border-[ #e5e5e5] mb-[10px] mr-[10px] h-[30px] border px-5 text-[#333]" key={index}>
                   {sku.attrs[0]?.attrValue}
                 </button>
               ))}
@@ -117,17 +98,9 @@ export default function CommodityInfo({
           <li className="flex items-center space-x-3">
             <span className=" shrink-0 text-[#999]">数量：</span>
             <div className=" h-[30px] border border-[#e5e5e5]">
-              <button className="h-full w-10 cursor-pointer border border-[#e5e5e5] text-xl font-bold">
-                -
-              </button>
-              <input
-                type="text"
-                className="h-full w-[60px] text-center"
-                value={1}
-              />
-              <button className="h-full w-10 cursor-pointer border  border-[#e5e5e5] text-xl font-bold">
-                +
-              </button>
+              <button className="h-full w-10 cursor-pointer border border-[#e5e5e5] text-xl font-bold">-</button>
+              <input type="text" className="h-full w-[60px] text-center" value={1} />
+              <button className="h-full w-10 cursor-pointer border  border-[#e5e5e5] text-xl font-bold">+</button>
             </div>
           </li>
           {product.serviceType.length && (
@@ -137,14 +110,9 @@ export default function CommodityInfo({
                 {product.serviceType.map((item, index) => {
                   if (commodityService.find((i) => i.id === item)) {
                     return (
-                      <li
-                        key={item}
-                        className="mb-3 mr-5 flex items-center justify-center"
-                      >
+                      <li key={item} className="mb-3 mr-5 flex items-center justify-center">
                         <i className="mr-1 h-1 w-1 rounded-full bg-[#d33a31]"></i>
-                        <span className="text-[#666]">
-                          {commodityService.find((i) => i.id === item)?.title}
-                        </span>
+                        <span className="text-[#666]">{commodityService.find((i) => i.id === item)?.title}</span>
                       </li>
                     )
                   }

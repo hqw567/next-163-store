@@ -38,10 +38,7 @@ const Banner = memo(() => {
           onSlideChange={() => console.log('slide change')}
         >
           {banners?.map((item, index) => {
-            console.log(
-              '🚀 ~ file: banner.tsx:40 ~ {banners?.map ~ item:',
-              item,
-            )
+            console.log('🚀 ~ file: banner.tsx:40 ~ {banners?.map ~ item:', item)
             return (
               <SwiperSlide className=" " key={item.id}>
                 <Link
@@ -51,13 +48,7 @@ const Banner = memo(() => {
                   className={` flex  h-full w-full select-none  items-center justify-center bg-cover bg-center bg-repeat-x`}
                 >
                   <div className="page-wrapper ">
-                    <Image
-                      className="h-full w-full"
-                      src={item.picStr}
-                      alt="banner"
-                      width={1100}
-                      height={480}
-                    />
+                    <Image className="h-full w-full" src={item.picStr} alt="banner" width={1100} height={480} />
                   </div>
                 </Link>
               </SwiperSlide>

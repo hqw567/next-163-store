@@ -25,13 +25,7 @@ export default function SectionItem({
     <li>
       <Link href={href} className="group  block">
         <div className="relative">
-          <Image
-            className=" h-[263px] w-[263px]"
-            src={imgSrc}
-            alt={title}
-            width={263}
-            height={263}
-          />
+          <Image className=" h-[263px] w-[263px]" src={imgSrc} alt={title} width={263} height={263} />
           {status === -1 && (
             <div
               style={{
@@ -43,9 +37,7 @@ export default function SectionItem({
           {originalCost !== price && originalCost && (
             <div className=" absolute left-5 top-5 flex h-[60px] w-[60px] flex-col items-center justify-center  rounded-full bg-[#d33a31] text-white">
               <p className=" text-[15px] leading-[17px]">￥{price}</p>
-              <p className=" text-[13px]  line-through opacity-70">
-                ￥{originalCost}
-              </p>
+              <p className=" text-[13px]  line-through opacity-70">￥{originalCost}</p>
             </div>
           )}
         </div>
@@ -56,19 +48,12 @@ export default function SectionItem({
             </span>
           )}
           {tags?.length > 0 && (
-            <span className="mr-1 whitespace-nowrap border border-[#d74d45] px-1 text-xs text-[#d74d45]">
-              {tags}
-            </span>
+            <span className="mr-1 whitespace-nowrap border border-[#d74d45] px-1 text-xs text-[#d74d45]">{tags}</span>
           )}
           <span className="   group-hover:underline">{title}</span>
         </p>
         <p className="mt-1 text-center text-base text-[#d33a31]">
-          ¥{price}{' '}
-          {vipPrice && (
-            <span className="text-[15px] text-[#fe672e]">
-              (黑胶VIP ¥{vipPrice})
-            </span>
-          )}
+          ¥{price} {vipPrice && <span className="text-[15px] text-[#fe672e]">(黑胶VIP ¥{vipPrice})</span>}
         </p>
       </Link>
     </li>
