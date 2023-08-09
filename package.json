@@ -35,6 +35,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.7",
+    "conventional-changelog-cli": "^3.0.0",
     "conventional-changelog-conventionalcommits": "^6.1.0",
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.3",
