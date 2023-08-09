@@ -3,14 +3,14 @@
 import React, { memo, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { RootState } from '@/store'
+import { AppDispatch, RootState } from '@/store'
 import { fetchSearchSuggest } from '@/store/modules/home'
 import { useRouter } from 'next/navigation'
 import styles from './layout.module.scss'
 const HeaderSearch = memo(() => {
   const [value, setValue] = useState<string>('')
   const [focused, setFocused] = useState(false)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
   const router = useRouter()
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
@@ -21,7 +21,7 @@ const HeaderSearch = memo(() => {
     setFocused(false)
   }
   useEffect(() => {
-    dispatch(fetchSearchSuggest() as any)
+    dispatch(fetchSearchSuggest())
   }, [])
 
   const handleGoSearch = (value: string) => {
