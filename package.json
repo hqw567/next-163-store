@@ -54,6 +54,12 @@
       "path": "node_modules/cz-git"
     }
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,scss}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "husky": {
     "hooks": {
       "pre-add": "npm run prettier",
